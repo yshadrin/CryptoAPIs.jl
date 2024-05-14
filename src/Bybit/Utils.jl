@@ -1,13 +1,5 @@
 # Bybit/Utils
 
-function Serde.deser(::Type{<:AbstractAPIsData}, ::Type{<:Maybe{NanoDate}}, x::Int64)::NanoDate
-    return unixnanos2nanodate(x * 1e6)
-end
-
-function Serde.deser(::Type{<:AbstractAPIsData}, ::Type{<:Maybe{NanoDate}}, x::String)::NanoDate
-    return unixnanos2nanodate(parse(Int64, x) * 1e6)
-end
-
 function Serde.deser(::Type{<:BybitAPIError}, ::Type{<:Maybe{NanoDate}}, x::Int64)::NanoDate
     return unixnanos2nanodate(x * 1e6)
 end

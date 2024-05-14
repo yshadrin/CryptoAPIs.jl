@@ -1,13 +1,5 @@
 # Kucoin/Utils
 
-function Serde.deser(::Type{<:KucoinData}, ::Type{<:Maybe{NanoDate}}, x::Int64)::NanoDate
-    return unixnanos2nanodate(x * 1e6)
-end
-
-function Serde.deser(::Type{<:KucoinData}, ::Type{<:Maybe{NanoDate}}, x::AbstractString)::NanoDate
-    return unixnanos2nanodate(parse(Int64, x) * 1e9)
-end
-
 function Serde.ser_ignore_field(::Type{<:KucoinCommonQuery}, ::Val{:signature})::Bool
     return true
 end
